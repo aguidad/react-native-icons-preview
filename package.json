@@ -4,6 +4,7 @@
   "description": "Snippets for popular icon fonts such as Font Awesome, Ionicons, Glyphicons, Octicons, Material Design Icons and many more!",
   "version": "0.0.1",
   "main": "./extension.js",
+  "icon": "icon.png",
   "publisher": "guidev",
   "license": "MIT",
   "author": {
@@ -18,7 +19,6 @@
   "bugs": {
     "url": "https://github.com/idleberg/react-native-icons-preview/issues"
   },
-  "icon": "src/assets/logo.png",
   "keywords": [
     "vscode",
     "preview",
