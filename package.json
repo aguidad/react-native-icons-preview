@@ -210,59 +210,59 @@
         "path": "./src/snippets/si.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/ai.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/ti.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/ei.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/fi.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/fa.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/fa5.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/fo.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/fd.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/io.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/md.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/mc.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/oci.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/zi.json"
       },
       {
-        "language": "typescript",
+        "language": "typescriptreact",
         "path": "./src/snippets/si.json"
       }
     ]
