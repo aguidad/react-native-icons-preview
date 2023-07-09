@@ -37,7 +37,10 @@
     "vscode": "^1.78.0"
   },
   "activationEvents": [
-    "*"
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact"
   ],
   "contributes": {
     "snippets": [
