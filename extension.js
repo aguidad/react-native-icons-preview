@@ -110,12 +110,12 @@ function activate(context) {
       throttleIds[lookupKey] = setTimeout(() => {
         scan(editor);
         delete throttleIds[lookupKey];
-      }, 500);
+      }, 1000);
     }
   };
 
   context.subscriptions.push(
-    vscode.workspace.onDidChangeTextDocument(() => {
+    vscode.workspace.onDidChangeTextDocument((e) => {
       refresh();
     })
   );
@@ -129,12 +129,6 @@ function activate(context) {
   context.subscriptions.push(
     vscode.workspace.onDidChangeWorkspaceFolders(() => {
       refresh();
-    })
-  );
-
-  context.subscriptions.push(
-    vscode.workspace.onDidOpenTextDocument((e) => {
-      if (e) throttledScan(e);
     })
   );
 
