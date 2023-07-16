@@ -2,6 +2,7 @@ const vscode = require("vscode");
 
 const displayIcon = require("./src/utils/displayIcon");
 const objectEquality = require("./src/utils/objectEquality");
+const constants = require("./src/configs/constants");
 
 /**
  * @param {vscode.ExtensionContext} context
@@ -11,18 +12,20 @@ function activate(context) {
   const iconRegex = /<([A-Z][a-zA-Z0-9.]*)\s+([^>]+?)\/?>/g;
   const multilineIconRegex = /([a-zA-Z0-9 ])*<([A-Z][a-zA-Z0-9 ]*)/g;
   let throttleIds = {};
+  const fontNames = constants.FONT_NAMES;
   let lines = {};
 
   function isJsOrTsFile(document) {
     const lang = document.languageId;
     return lang.includes("javascript") || lang.includes("typescript");
   }
-
   const scan = (editor) => {
     const nextLines = {};
     if (!editor.document || !editor.document.uri) return;
 
     let noneMatchedLine = { lineNum: undefined, content: "" };
+    const isStartFontTag = (t) =>
+      fontNames.some((f) => new RegExp(`^( )*<${f}`).test(t));
 
     try {
       for (let line = 0; line < editor.document.lineCount; line++) {
@@ -32,25 +35,28 @@ function activate(context) {
         if (!match) match = iconRegex.exec(text);
 
         if (text && !match) {
-          if (!noneMatchedLine.content) {
-            let matching = multilineIconRegex.exec(text);
-            if (!matching) matching = multilineIconRegex.exec(text);
-            if (!matching) continue;
+          if (!noneMatchedLine.content && !isStartFontTag(text));
+          else {
+            if (!noneMatchedLine.content) {
+              let matching = multilineIconRegex.exec(text);
+              if (!matching) matching = multilineIconRegex.exec(text);
+              if (!matching) continue;
 
-            noneMatchedLine.lineNum = line;
-          }
+              noneMatchedLine.lineNum = line;
+            }
 
-          const fullText = noneMatchedLine.content.concat(text);
-          noneMatchedLine.content = fullText;
+            const fullText = noneMatchedLine.content.concat(text);
+            noneMatchedLine.content = fullText;
 
-          const new_match = iconRegex.exec(fullText);
-          const line_ = noneMatchedLine.lineNum;
+            const new_match = iconRegex.exec(fullText);
+            const line_ = noneMatchedLine.lineNum;
 
-          if (new_match) {
-            const icon = displayIcon(fullText, new_match[1]);
-            if (icon) {
-              nextLines[line_] = icon;
-              noneMatchedLine = { lineNum: undefined, content: "" };
+            if (new_match) {
+              const icon = displayIcon(fullText, new_match[1]);
+              if (icon) {
+                nextLines[line_] = icon;
+                noneMatchedLine = { lineNum: undefined, content: "" };
+              }
             }
           }
         } else if (match && noneMatchedLine.content)

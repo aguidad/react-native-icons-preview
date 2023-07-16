@@ -4,7 +4,7 @@ const btoa = require("btoa");
 const getProps = require("./getProps");
 const glyphMapToSvg = require("./glyphMapToSvg");
 const searchGlyphMap = require("./searchGlyphMap");
-const iconShortcut = require("./iconShortcut");
+const iconShortcut = require("./iconsShortcut");
 
 function displayIcon(text, iconType) {
   const { name, type, color, solid, brands } = getProps(text);
