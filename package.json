@@ -2,7 +2,7 @@
   "name": "react-native-icons-preview",
   "displayName": "React Native Icons Preview",
   "description": "Preview your React Native icons directly within the vscode editor.",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "./extension.js",
   "icon": "icon.png",
   "publisher": "guidev",
